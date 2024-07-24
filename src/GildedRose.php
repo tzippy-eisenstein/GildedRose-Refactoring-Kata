@@ -7,8 +7,13 @@ final class GildedRose
      * @param Item[] $items
      */
     public function __construct( private array $items ) { }
-    
+git
     public function updateQuality(): void
+    {
+        foreach ($this->items as $item) { $this-> updateFunction($item); } 
+    }
+    
+    public function updateFunction(): void
     {
         foreach ($this->items as $item) {
             if ($item->name != 'Aged Brie' and $item->name != 'Backstage passes to a TAFKAL80ETC concert') {
@@ -19,7 +24,7 @@ final class GildedRose
                 }
             } else {
                 if ($item->quality < 50) {
-                    $item->quality++;
+                    $item->quality = $item->quality + 1;
                     if ($item->name == 'Backstage passes to a TAFKAL80ETC concert') {
                         if ($item->sellIn < 11) {
                             if ($item->quality < 50) {
@@ -46,7 +51,7 @@ final class GildedRose
                             }
                         }
                     } else {
-                        $item->quality = 0;
+                        $item->quality =0;
                     }
                 } else {
                     if ($item->quality < 50) {
