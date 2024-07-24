@@ -48,25 +48,29 @@ final class GildedRose
             $item->sellIn--;
         }
         if ($item->sellIn < 0) {
-            switch ($item->name) {
-                case 'Aged Brie':
-                    if ($item->quality < 50) {
-                        $item->quality++;
-                    }
-                    break;
-                case 'Backstage passes to a TAFKAL80ETC concert':
-                    $item->quality = 0;
-                    break;
-                case 'Sulfuras, Hand of Ragnaros':
-                    break;
-                default:
-                    if ($item->quality > 0) {
-                        $item->quality--;
-                    }
-                    break;
-            }
+            $this->handleExpiredItem($item);
         }
     }   
+    private function handleExpiredItem(Item $item): void
+    {
+        switch ($item->name) {
+            case 'Aged Brie':
+                if ($item->quality < 50) {
+                    $item->quality++;
+                }
+                break;
+            case 'Backstage passes to a TAFKAL80ETC concert':
+                $item->quality = 0;
+                break;
+            case 'Sulfuras, Hand of Ragnaros':
+                break;
+            default:
+                if ($item->quality > 0) {
+                    $item->quality--;
+                }
+                break;
+        }
+    }
  }
 
     
