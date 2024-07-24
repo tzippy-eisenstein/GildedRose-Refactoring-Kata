@@ -24,12 +24,12 @@ final class GildedRose
             case 'Backstage passes to a TAFKAL80ETC concert':
                 if ($item->quality < 50) {
                     $item->quality++;
-                    if ($item->sellIn < 11) {
+                    if ($item->sellIn < 6){
                         if ($item->quality < 50) {
-                            $item->quality++;
+                            $item->quality+=2;
                         }
                     }
-                    if ($item->sellIn < 6) {
+                    else if($item->sellIn < 11) {
                         if ($item->quality < 50) {
                             $item->quality++;
                         }
