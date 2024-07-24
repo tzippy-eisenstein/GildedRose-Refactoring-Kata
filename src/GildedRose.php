@@ -1,18 +1,12 @@
 <?php
-
 declare(strict_types=1);
-
 namespace GildedRose;
-
 final class GildedRose
 {
     /**
      * @param Item[] $items
      */
-    public function __construct(
-        private array $items
-    ) {
-    }
+    public function __construct( private array $items ) { }
     
     public function updateQuality(): void
     {
@@ -40,11 +34,9 @@ final class GildedRose
                     }
                 }
             }
-            
             if ($item->name != 'Sulfuras, Hand of Ragnaros') {
                 $item->sellIn = $item->sellIn - 1;
             }
-
             if ($item->sellIn < 0) {
                 if ($item->name != 'Aged Brie') {
                     if ($item->name != 'Backstage passes to a TAFKAL80ETC concert') {
