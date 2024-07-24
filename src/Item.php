@@ -11,6 +11,6 @@ class Item implements \Stringable
     
     public function __toString(): string
     {
-        return (string) "{$this->name}, {$this->sellIn}, {$this->quality}";
+        return sprintf('%s, %d, %d', $this->name, $this->sellIn, $this->quality);
     }
 }
