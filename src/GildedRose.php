@@ -47,10 +47,12 @@ final class GildedRose
         if ($item->name !== 'Sulfuras, Hand of Ragnaros') {
             $item->sellIn--;
         }
+        
         if ($item->sellIn < 0) {
             $this->handleExpiredItem($item);
         }
-    }   
+    }  
+
     private function handleExpiredItem(Item $item): void
     {
         switch ($item->name) {
